@@ -17,7 +17,13 @@ class GaleriaAdmin(admin.ModelAdmin):
     search_fields=['ident']
     list_per_page = 10
 
+class InsumosAdmin(admin.ModelAdmin):
+    list_display=['nombre','precio','descripcion','stock']
+    search_fields=['nombre']
+    list_per_page = 10
+
+
 admin.site.register(SliderIndex, SliderIndexAdmin)
 admin.site.register(MisionyVision, MisionyVisionAdmin)
 admin.site.register(Galeria1, GaleriaAdmin)
-admin.site.register(Insumos)
+admin.site.register(Insumos, InsumosAdmin)
