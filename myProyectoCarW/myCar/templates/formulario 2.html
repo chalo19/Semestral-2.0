@@ -1,0 +1,66 @@
+{% extends "plantilla.html" %}
+{% load static %}  
+
+    {% block js %}
+    <meta name="viewport" content="width=device-width,user scalable=0,initial-scale=1.0,maxium scale=1,miniumm scale=1">
+    <title>Insumos</title>
+    {% endblock js %}
+
+    {% block contenido %}
+    <script>
+      function ir() {
+        location.href='/lista_insumos/';
+      }
+    </script>
+      <div id="contenedor">               
+          <div id="contenidoF">
+              <div class="sectionF">
+                  <h1>Formulario de Insumos</h1>
+
+                  <form action="{% url 'FORMULARIO2' %}" method="post">
+                    {% csrf_token %}
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="nombreI">Nombre Insumo</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="nombreI" name="nombreinsumo" placeholder="Nombre del insumo.." minlength="3" maxlength="120" required>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="precioI">Precio</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="number" id="precioI" name="precioinsumo" placeholder="Valor del insumo.." min=1 required>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="descI">Descripcion</label>
+                        </div>
+                        <div class="col-75">
+                          <textarea id="descI" name="descripcioninsumo" placeholder="Escriba aquí.." style="height:200px" minlength="3" maxlength="200"></textarea>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="stock">Stock</label>
+                        </div>
+                        <div class="col-75">
+                          <input type="number" id="stock" name="stock" placeholder="Stock.." min=0 required>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <input type="submit" value="Grabar">
+                          <input type="reset" value="Limpiar">
+                          <input class="btn btn-success" type="button" onclick="ir()" value="Admin Insumos">                   
+                      </div>
+                  </form>
+              </div>           
+          </div>      
+      </div>   
+    <div style="text-align: center; color: brown;">
+      <h2>{{msg}}</h2>
+    </div>
+    {% endblock contenido %}

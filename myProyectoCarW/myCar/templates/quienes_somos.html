@@ -1,0 +1,29 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+    {% block js %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quienes Somos</title>
+    {% endblock js %}
+        
+        {% block contenido %}
+        <div class="contenidoQS">
+            {% for item in myv %}          
+            <div class="sectionQS">
+            <h1>Visión y Misión</h1>
+
+            <h2>Visión</h2>
+            <p>{{item.vision}}</p>   
+            
+            <h2>Misión</h2>
+            <p>{{item.mision}}</p>   
+            <img src="{% static 'img/logoCarwash.png' %}" width="20%">
+
+            </div>
+            {% endfor %}
+            <div class="asideQS">
+                <h1>MAPA</h1>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.260906987273!2d-70.58120388479686!3d-33.598534280731755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d70378579567%3A0x51a75ea8af9554b5!2sAv.%20Concha%20Y%20Toro%201340%2C%20Puente%20Alto%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1598384300806!5m2!1ses-419!2scl" width="80%" height="80%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>           
+        </div>
+        {% endblock contenido %}     

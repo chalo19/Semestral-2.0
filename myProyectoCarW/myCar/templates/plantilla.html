@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="icon" href="{% static 'img/005-car-wash.png' %}" sizes="144x144">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+
+    {% block js %}  
+
+    {% endblock js %}  
+</head>
+
+<body>
+   <div class="contenedor">
+        
+        <div id="nav">
+            
+            <nav>
+                <ul>
+                    <li><a href="{% url 'INICIO' %}">Home</a></li>
+                    <li><a href="{% url 'GALERIA' %}">Galeria</a></li>
+                    <li><a href="{% url 'FORMULARIO' %}">Registrar</a></li>
+                    <li><a href="{% url 'FORMULARIO2' %}">Insumos</a></li>
+                    <li><a href="{% url 'QUIENES_SOMOS' %}">Quienes Somos</a></li>
+
+                    {% if user.is_authenticated %}
+                        <li><a href="">Bienvenido {{user.first_name}} {{user.last_name}}</a></li>
+                        <li><a href="{% url 'LOGOUT' %}">Cerrar Sesion</a></li>                    
+                    {% else %}                   
+                        <li><a href="{% url 'LOGIN' %}">Login</a></li>    
+                    {% endif %}              
+                    
+                </ul>
+            </nav>
+        </div> 
+        {% block contenido %} 
+
+        {% endblock contenido %} 
+
+        <div class="footer">
+
+            <div class="footer-contenido2">
+                <h1>CARWASH</h1>
+                
+                <p>Usamos última tecnología de lavado de autos y pulido siempre preocupados por detalles. </p>
+                <p>Lunes a Sábado de 08:30 a 19:00 hrs Domingos y feriados de 09:00 a 18:00 hrs.</p>
+            </div>
+            <div class="footer-contenido2">
+                <h1>CONTACTO</h1>
+                
+                <p>Llamanos al +569 6372 4401 | carwash@gmail.com </p>
+                <p>La Florida 7640, La Florida, Región Metropolitana</p>
+            </div>  
+        </div>
+    </div>
+
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+    {% block js2 %}
+        
+    {% endblock js2 %}
+</body>
+</html>

@@ -1,0 +1,75 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+    {% block js %} 
+    <meta name="viewport" content="width=device-width,user scalable=0,initial-scale=1.0,maxium scale=1,miniumm scale=1">
+    <title>Formulario</title>
+    {% endblock js %}
+          
+        {% block contenido %}
+        <div id="contenidoF">
+            <div class="sectionF">
+                <h1>Registro De Usuarios</h1>
+                  <script src="{% static 'JS/validaciones.js' %}"></script>
+                <form action="" method="post" onsubmit=" return validarTodo()">    
+                  {% csrf_token %}              
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="precioI">Nombres Completos:</label>
+                          </div>
+                          <div class="col-75">
+                                <input type="text" minlength="3" name="txtNombre" maxlength="80" id="txtNombre" required placeholder="Primer, Segundo nombre..">
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="descI">Apellidos Completos:</label>
+                          </div>
+                          <div class="col-75">
+                                <input type="text" minlength="3" name="txtApellido" maxlength="80" id="txtApellido" required placeholder="Apellido Paterno y Materno..">  
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="descI">Correo:</label>
+                          </div>
+                          <div class="col-75">
+                                <input type="email" name="txtEmail" id="txtEmail" required placeholder="Ingrese su correo electrónico..">
+                            </div>
+                        </div>                      
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="descI">Usuario:</label>
+                          </div>
+                          <div class="col-75">
+                                <input type="text" minlength="8" name="txtUser" maxlength="80" id="txtUser" required placeholder="Ingrese su usuario..">
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="descI">Contraseña:</label>
+                          </div>
+                          <div class="col-75">
+                                <input type="password" minlength="8" required maxlength="99" name="txtPass" id="txtPass">
+                            </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-25">
+                            <label for="descI">Repetir Contraseña:</label>
+                          </div>
+                          <div class="col-75">
+                                <input type="password" minlength="8" required maxlength="99" name="txtPassRepetir" id="txtPassRepetir">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <input type="submit" value="Grabar">
+                            <input type="reset" value="Limpiar">
+                            <input type="submit" value="Enviar">                                                                    
+                        </div>
+                </form>
+            </div>           
+        </div>  
+        <div style="text-align: center; color: brown;">
+          <h2>{{msg}}</h2>
+        </div>
+        {% endblock contenido %}     

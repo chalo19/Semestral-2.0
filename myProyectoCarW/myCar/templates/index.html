@@ -1,0 +1,116 @@
+{% extends "plantilla.html" %}
+{% load static %}
+
+    {% block js %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    {% endblock js %}
+    
+    {% block contenido %}
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicadores -->
+            <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Los Sliders -->
+            <div class="carousel-inner">
+            {% for item in autos %}
+                {% if item.ident == "slider1" %}
+                    <div class="item active">
+                {% else %}
+                    <div class="item">
+                {% endif %}
+                    <img src="{{item.imagen.url}}" alt="Limpieza" >
+                    <div class="carousel-caption">
+                        <h2>{{item.textTitulo}}</h2>
+                        <p>{{item.textDefinicion}}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <!-- Controles Derecha Izquierda-->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Anterior</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Siguiente</span>
+            </a>
+        </div>     
+
+            <!-- Controles Derecha Izquierda-->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Anterior</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Siguiente</span>
+            </a>
+        </div>                              
+        
+        <div class="contenido">
+            <div class="section">
+                
+                    <img src="{% static 'img/interno.jpg' %}" width="100%" height="100%"> 
+                  
+                <div class="desc">
+                        <h3>INTERNO</h3>
+                        <p>Para lograr una limpieza profunda en todo tipo de tela del interior de sus autos como a la vez un olor satisfactorios a la hora de conducir.</p>
+                </div>
+            </div>
+                    
+            <div class="section">
+                  
+                    <img src="{% static 'img/pulidoServi.jpg' %}" width="100%" height="100%" >
+                        
+                <div class="desc">      
+                        <h3>PULIDO</h3>
+                        <p>Para lograr un brillo mucho mas intenso a las pinturas nuevas,con ralladuras demasiadas finas, de pura calidad, durarero en el tiempo.</p>
+                </div>  
+            </div>
+                    
+
+            <div class="section">
+                             
+                    <img src="{% static 'img/lavadoServi.jpg' %}" width="100%" height="100%">
+               
+                <div class="desc">       
+                        
+                        <h3>LAVADO</h3>
+                        <p>Una limpieza a su auto garantizada inimaginable por parte del staff de todo el equipo profesional de CarWash con mas de 4 sucursales.</p>
+                        </div>
+                </div>     
+        
+            
+            <div class="aside">
+                
+                <img src="{% static 'img/p1.jpg' %}" >
+                <div class="desc_as"> 
+                <p>Recomendado 100%</p>
+                </div>
+            </div>
+            <div class="aside">
+                <img src="{% static 'img/p1.jpg' %}" >
+                <div class="desc_as"> 
+                <p>La mejor de las atenciones</p>
+                </div>
+            </div>
+            <div class="aside">
+                <img src="{% static 'img/p1.jpg' %}" >
+                <div class="desc_as"> 
+                <p>Buenos precios</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock contenido %}
